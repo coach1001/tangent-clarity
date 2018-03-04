@@ -1,0 +1,30 @@
+<clr-header class="header-4">
+  <div class="branding">
+    <a class="nav-link finger" routerLink="" routerLinkActive="active">
+      <!-- <clr-icon shape="administrator"></clr-icon> -->
+      <span class="title">Dashboard</span>
+    </a>
+  </div>
+  <div class="header-nav" [clr-nav-level]="1">
+    <ng-container *ngFor="let navItem of navItems;">
+        <a class="nav-link finger"
+          routerLink="{{navItem.route}}"
+          routerLinkActive="active"
+          *ngIf="navItem.reqAuth === authenticated && navItem.pos === 'left'"
+          >
+          <span class="nav-text">{{navItem.label}}</span>
+        </a>
+    </ng-container>
+  </div>
+  <div class="header-actions">
+    <ng-container *ngFor="let navItem of navItems;">
+      <a class="nav-link finger"
+        routerLink="{{navItem.route}}"
+        routerLinkActive="active"
+        *ngIf="navItem.reqAuth === authenticated && navItem.pos === 'right'"
+        >
+        <span class="nav-text">{{navItem.label}}</span>
+      </a>
+    </ng-container>
+  </div>
+</clr-header>
